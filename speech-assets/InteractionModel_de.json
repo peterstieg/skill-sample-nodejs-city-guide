@@ -1,0 +1,90 @@
+{
+  "intents": [
+    {
+      "name": "AboutIntent",
+      "samples": [
+        "über",
+        "erzähle etwas über den platz"
+      ],
+      "slots": []
+    },
+
+    {
+      "name": "CoffeeIntent",
+      "samples": [
+        "kaffee"
+      ],
+      "slots": []
+    },
+    {
+      "name": "BreakfastIntent",
+      "samples": [
+        "frühstück"
+      ],
+      "slots": []
+    },
+    {
+      "name": "LunchIntent",
+      "samples": [
+        "mittag"
+      ],
+      "slots": []
+    },
+    {
+      "name": "DinnerIntent",
+      "samples": [
+        "abendessen"
+      ],
+      "slots": []
+    },
+
+    {
+      "name": "AttractionIntent",
+      "samples": [
+        "empfehle eine attraktion",
+        "empfehle eine attraktion innerhalb von {distance} meilen",
+        "schlage eine aktivität vor",
+        "schlage eine aktivität innerhalb von {distance} meilen vor"
+      ],
+      "slots": [
+        {
+          "name": "distance",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
+    },
+
+    {
+      "name": "GoOutIntent",
+      "samples": [
+        "gehe raus",
+        "gehe nach draußen",
+        "lass uns raus gehen"
+      ],
+      "slots": []
+    },
+    {
+      "name": "AMAZON.YesIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.NoIntent",
+      "samples": []
+    },
+
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    }
+
+  ]
+}
