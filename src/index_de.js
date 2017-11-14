@@ -182,6 +182,11 @@ const handlers = {
 
         var attraction = randomArrayElement(getAttractionsByDistance(distance));
 
+        if (!attraction) {
+            this.response.speak("Ich konnte leider nichts im Umkreis von " + distance +" Meilen finden!");
+            this.emit(':responseReady');                
+        }
+
         var say = 'Versuche '
             + attraction.name + ', es ist '
             + (attraction.distance == "0" ? 'in der Innenstadt. ' : attraction.distance + ' Meilen entfernt. Viel Spaß! ')
