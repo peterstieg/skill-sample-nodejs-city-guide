@@ -26,56 +26,56 @@ const data = {
     "postcode"    : "40000",
     "restaurants" : [
         { "name":"Zeke's Place",
-            "address":"66 East Main Street", "phone": "0211-123450",
+            "address":"Hauptstraße 1", "phone": "0211-123450",
             "meals": "breakfast, lunch",
             "description": "Ein gemütlicher Laden."
         },
-        { "name":"Morning Glory Coffee Shop",
-            "address":"25 Western Avenue", "phone": "0211-123451",
+        { "name":"Guten Morgen Kaffee",
+            "address":"Bahnhofsplatz 12", "phone": "0211-123451",
             "meals": "coffee, breakfast, lunch",
-            "description": "A homestyle diner located just across the street from the harbor sea wall."
+            "description": "Gegenüber vom Bahnhof."
         },
-        { "name":"Sugar Magnolias",
-            "address":"112 Main Street", "phone": "0211-123452",
+        { "name":"Zuckerblume",
+            "address":"Marktplatz 99", "phone": "0211-123452",
             "meals": "breakfast, lunch",
-            "description": "A quaint eatery, popular for weekend brunch.  Try the carrot cake pancakes."
+            "description": "Populär für seine Pfannkuchen."
         },
-        { "name":"Seaport Grille",
-            "address":"6 Rowe Square", "phone": "0211-123453",
+        { "name":"Rheinhafen Grill",
+            "address":"Rheinuferstraße 11", "phone": "0211-123453",
             "meals": "lunch, dinner",
-            "description": "Serving seafood, steak and casual fare.  Enjoy harbor views on the deck."
+            "description": "Genieße den Blick auf den Rhein."
         },
-        { "name":"Latitude 43",
-            "address":"25 Rogers Street", "phone": "0211-123454",
+        { "name":"Breitengrad",
+            "address":"Breitestraße 4", "phone": "0211-123454",
             "meals": "lunch, dinner",
-            "description": "Features artsy decor and sushi specials.  Live music evenings at the adjoining Minglewood Tavern."
+            "description": "Live-Musik und Sushi."
         },
         { "name":"George's Coffee Shop",
-            "address":"178 Washington Street", "phone": "0211-123455",
+            "address":"Friedrichstraße 301", "phone": "0211-123455",
             "meals": "coffee, breakfast, lunch",
-            "description": "A highly rated local diner with generously sized plates."
+            "description": "Super bewertet und auch bei Einheimischen beliebt."
         },
 
     ],
     "attractions":[
         {
             "name": "Walbeobachtung",
-            "description": "Gloucester has tour boats that depart twice daily from Rogers street at the harbor.  Try either the 7 Seas Whale Watch, or Captain Bill and Sons Whale Watch. ",
+            "description": "Wer hätte das gedacht, hier kann man Wale beobachten.",
             "distance": "0"
         },
         {
-            "name": "Good Harbor Strand",
-            "description": "Facing the Atlantic Ocean, Good Harbor Beach has huge expanses of soft white sand that attracts hundreds of visitors every day during the summer.",
+            "name": "Schöner Strand",
+            "description": "Auch am Rhein gibt es schöne Strände.",
             "distance": "2"
         },
         {
-            "name": "Rockport",
-            "description": "A quaint New England town, Rockport is famous for rocky beaches, seaside parks, lobster fishing boats, and several art studios.",
+            "name": "Altstadt",
+            "description": "Altbier für Kenner.",
             "distance": "4"
         },
         {
-            "name": "Fenway Park",
-            "description": "Home of the Boston Red Sox, Fenway park hosts baseball games From April until October, and is open for tours. ",
+            "name": "Esprit Arena",
+            "description": "Heimat des lokalen Fußballclubs Fortuna Düsseldorf.",
             "distance": "38"
         }
     ]
@@ -166,7 +166,7 @@ const handlers = {
 
         var card = restaurantDetails.name + '\n' + restaurantDetails.address + '\n'
             + data.city + ', ' + data.state + ' ' + data.postcode
-            + '\nphone: ' + restaurantDetails.phone + '\n';
+            + '\nTelefon: ' + restaurantDetails.phone + '\n';
 
         this.response.cardRenderer(SKILL_NAME, card);
         this.response.speak(say);
