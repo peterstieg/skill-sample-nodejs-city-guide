@@ -15,7 +15,7 @@ const languageStrings = {
         'translation' : { 
             'WELCOME' : "Willkommen beim Düsseldorf Reiseführer!",
             'HELP'    : "Sage über, um mehr über die Stadt zu erfahren, oder sage Kaffee, Frühstück, Mittag, oder Abendessen, um lokale Restaurantvorschläge zu erhalten, oder sage empfehle eine Attraktion, oder sage, geh nach draußen.",
-            'ABOUT'   : "Düsseldorf ist eine Stadt am atlantischen Ozean. Ein beliebtes Ausflugsziel im Sommer, Gloucester hat eine umfangreiche Geschichte des Fisches und des Schiffsbaus.",
+            'ABOUT'   : "Düsseldorf ist eine Stadt am Rhein. Die Messe- und Sportstadt ist ein beliebtes Ausflugsziel zum Einkaufen und hat eine umfangreiche Geschichte rund um Bier.",
             'STOP'    : "Okay, bis bald!"
         } 
     }
