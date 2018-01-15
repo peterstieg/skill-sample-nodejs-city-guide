@@ -42,9 +42,9 @@
       "name": "AttractionIntent",
       "samples": [
         "recommend an attraction",
-        "recommend an attraction within {distance} miles",
+        "recommend an attraction within {distance} kilometers",
         "give me an activity",
-        "give me an activity within {distance} miles"
+        "give me an activity within {distance} kilometers"
       ],
       "slots": [
         {

@@ -2,87 +2,180 @@
 // 1. Text strings =====================================================================================================
 //    Modify these strings and messages to change the behavior of your Lambda function
 
-const languageStrings = {
-    'en': {
-        'translation': {
-            'WELCOME' : "Welcome to Gloucester Guide!",
-            'HELP'    : "Say about, to hear more about the city, or say coffee, breakfast, lunch, or dinner, to hear local restaurant suggestions, or say recommend an attraction, or say, go outside. ",
-            'ABOUT'   : "Gloucester Massachusetts is a city on the Atlantic Ocean.  A popular summer beach destination, Gloucester has a rich history of fishing and ship building.",
-            'STOP'    : "Okay, see you next time!"
-        }
-    }
-    // , 'de-DE': { 'translation' : { 'TITLE'   : "Local Helfer etc." } }
-};
-const data = {
-    "city"        : "Gloucester",
-    "state"       : "MA",
-    "postcode"    : "01930",
+const data_en = {
+    "city"        : "Düsseldorf",
+    "state"       : "NRW",
+    "postcode"    : "40000",
     "restaurants" : [
-        { "name":"Zeke's Place",
-            "address":"66 East Main Street", "phone": "978-283-0474",
-            "meals": "breakfast, lunch",
-            "description": "A cozy and popular spot for breakfast.  Try the blueberry french toast!"
+        { "name":"Dauser",
+            "address":"Carlsplatz 4", "phone": "0211 486164",
+            "meals": "breakfast, lunch, dinner",
+            "description": "Very good civil dishes for a reasonable price."
         },
-        { "name":"Morning Glory Coffee Shop",
-            "address":"25 Western Avenue", "phone": "978-281-1851",
+        { "name":"Rösterei Vier",
+            "address":"Wallstraße 10", "phone": "0211 8693883",
             "meals": "coffee, breakfast, lunch",
-            "description": "A homestyle diner located just across the street from the harbor sea wall."
+            "description": "Cool caffe with a small selection of cakes and other sweet pastries."
         },
-        { "name":"Sugar Magnolias",
-            "address":"112 Main Street", "phone": "978-281-5310",
-            "meals": "breakfast, lunch",
-            "description": "A quaint eatery, popular for weekend brunch.  Try the carrot cake pancakes."
+        { "name":"Münstermann Kontor",
+            "address":"Hohe Straße 11", "phone": "0211 1300416",
+            "meals": "breakfast, lunch, dinner",
+            "description": "Delicious. A reservation is recommended."
         },
-        { "name":"Seaport Grille",
-            "address":"6 Rowe Square", "phone": "978-282-9799",
+        { "name":"Sternerestaurant Fritz's Frau Franzi",
+            "address":"Adersstraße 8", "phone": "0211 370750",
             "meals": "lunch, dinner",
-            "description": "Serving seafood, steak and casual fare.  Enjoy harbor views on the deck."
+            "description": "Friendly, relaxed and attentive service."
         },
-        { "name":"Latitude 43",
-            "address":"25 Rogers Street", "phone": "978-281-0223",
+        { "name":"Stappen in Oberkassel",
+            "address":"Luegallee 50", "phone": "0211 93077600",
             "meals": "lunch, dinner",
-            "description": "Features artsy decor and sushi specials.  Live music evenings at the adjoining Minglewood Tavern."
+            "description": "Fine German cuisine attentively served."
         },
-        { "name":"George's Coffee Shop",
-            "address":"178 Washington Street", "phone": "978-281-1910",
+        { "name":"Das Coffe",
+            "address":"Benrather Straße 6B", "phone": "0171 7760800",
             "meals": "coffee, breakfast, lunch",
-            "description": "A highly rated local diner with generously sized plates."
+            "description": "One of the best cappuccinos in Düsseldorf."
         },
 
     ],
     "attractions":[
         {
-            "name": "Whale Watching",
-            "description": "Gloucester has tour boats that depart twice daily from Rogers street at the harbor.  Try either the 7 Seas Whale Watch, or Captain Bill and Sons Whale Watch. ",
+            "name": "Medienhafen",
+            "description": "Perfect photo opportunity for photographers. The reflecting house must be seen.",
             "distance": "0"
         },
         {
-            "name": "Good Harbor Beach",
-            "description": "Facing the Atlantic Ocean, Good Harbor Beach has huge expanses of soft white sand that attracts hundreds of visitors every day during the summer.",
-            "distance": "2"
-        },
-        {
-            "name": "Rockport",
-            "description": "A quaint New England town, Rockport is famous for rocky beaches, seaside parks, lobster fishing boats, and several art studios.",
+            "name": "Düsselstrand",
+            "description": "Slides and attractions for all ages in a water park.",
             "distance": "4"
         },
         {
-            "name": "Fenway Park",
-            "description": "Home of the Boston Red Sox, Fenway park hosts baseball games From April until October, and is open for tours. ",
-            "distance": "38"
+            "name": "Wildpark Grafenberger Wald",
+            "description": "Free park with native animals in natural-looking enclosures.",
+            "distance": "6"
+        },
+        {
+            "name": "Esprit Arena",
+            "description": "Home of the local soccer club Fortuna Düsseldorf.",
+            "distance": "10"
         }
     ]
 }
 
-const SKILL_NAME = "Gloucester Guide";
+const data_de = {
+    "city"        : "Düsseldorf",
+    "state"       : "NRW",
+    "postcode"    : "40000",
+    "restaurants" : [
+        { "name":"Dauser",
+            "address":"Carlsplatz 4", "phone": "0211 486164",
+            "meals": "breakfast, lunch, dinner",
+            "description": "Sehr gute bürgerliche Gerichte zu einem vernünftigen Preis."
+        },
+        { "name":"Rösterei Vier",
+            "address":"Wallstraße 10", "phone": "0211 8693883",
+            "meals": "coffee, breakfast, lunch",
+            "description": "Cooles Caffe mit kleinem Angebot an Kuchen und anderem süßem Gebäck."
+        },
+        { "name":"Münstermann Kontor",
+            "address":"Hohe Straße 11", "phone": "0211 1300416",
+            "meals": "breakfast, lunch, dinner",
+            "description": "Super lecker. Eine Reservierung ist empfehlenswert."
+        },
+        { "name":"Sternerestaurant Fritz's Frau Franzi",
+            "address":"Adersstraße 8", "phone": "0211 370750",
+            "meals": "lunch, dinner",
+            "description": "Freundlicher, lockerer und zuvorkommender Service."
+        },
+        { "name":"Stappen in Oberkassel",
+            "address":"Luegallee 50", "phone": "0211 93077600",
+            "meals": "lunch, dinner",
+            "description": "Gehobene deutsche Küche aufmerksam serviert."
+        },
+        { "name":"Das Coffe",
+            "address":"Benrather Straße 6B", "phone": "0171 7760800",
+            "meals": "coffee, breakfast, lunch",
+            "description": "Einer der besten Cappuccinos in Düsseldorf."
+        },
+
+    ],
+    "attractions":[
+        {
+            "name": "Medienhafen",
+            "description": "Perfektes Fotomotiv für Fotografen. Das spiegelnde Haus muss man gesehen haben.",
+            "distance": "0"
+        },
+        {
+            "name": "Düsselstrand",
+            "description": "Rutschen und Attraktionen für alle Altersgruppen in einem Wasserpark.",
+            "distance": "4"
+        },
+        {
+            "name": "Wildpark Grafenberger Wald",
+            "description": "Kostenloser Park mit einheimischen Tieren in natürlich wirkenden Gehegen.",
+            "distance": "6"
+        },
+        {
+            "name": "Esprit Arena",
+            "description": "Heimat des lokalen Fußballclubs Fortuna Düsseldorf.",
+            "distance": "10"
+        }
+    ]
+}
+
+const languageStrings = {
+    'en': {
+        'translation': {
+            'DATA'      : data_en,
+            'WELCOME'   : 'Welcome to Dusseldorf Guide! Say about, to hear more about the city, or say coffee, breakfast, lunch, or dinner, to hear local restaurant suggestions, or say recommend an attraction, or say, go outside.',
+            'HELP'      : 'Say about, to hear more about the city, or say coffee, breakfast, lunch, or dinner, to hear local restaurant suggestions, or say recommend an attraction, or say, go outside.',
+            'ABOUT'     : 'Dusseldorf is a city on the river rhine. A popular shopping destination, Dusseldorf has a rich history of beer and fashion.',
+            'STOP'      : 'Okay, see you next time!',
+            'MORE'      : 'Would you like to hear more?',
+            'COFFEE'    : 'For a great coffee shop, I recommend {{name}}. Would you like to hear more?',
+            'BREAKFAST' : 'For breakfast, try this, {{name}}. Would you like to hear more?',
+            'LUNCH'     : 'Lunch time! Here is a good spot. {{name}}. Would you like to hear more?',
+            'DINNER'    : 'Enjoy dinner at {{name}}. Would you like to hear more?',
+            'ATTRACTION': 'Try {{name}}, which is kilomters away. Have fun! {{description}}',
+            'ATT_NEAR'  : 'Try {{name}}, which is right downtown. {{description}}',
+            'ATT_NO'    : 'I couldn\'t find anything in a {{distance}} kilomters radius.',
+            'DETAILS'   : '{{name}} is located at {{address}}, the phone number is {{phone}}, and the description is, {{description}}. I have sent these details to the Alexa App on your phone.  Enjoy your meal! <say-as interpret-as="interjection">bon appetit</say-as>',
+            'PHONE'     : 'phone: ',
+            'GO_OUT'    : 'It is {{localTime}} and the weather in {{city}} is {{currentTemp}} and {{currentCondition}}'
+        }
+    }, 
+    'de-DE': { 
+        'translation': {
+            'DATA'      : data_de, 
+            'WELCOME'   : 'Willkommen beim Düsseldorf Reiseführer! Sage über, um mehr über die Stadt zu erfahren, oder sage Kaffee, Frühstück, Mittag, oder Abendessen, um lokale Restaurantvorschläge zu erhalten, oder sage empfehle eine Attraktion, oder sage, geh nach draußen.',
+            'HELP'      : 'Sage über, um mehr über die Stadt zu erfahren, oder sage Kaffee, Frühstück, Mittag, oder Abendessen, um lokale Restaurantvorschläge zu erhalten, oder sage empfehle eine Attraktion, oder sage, geh nach draußen.',
+            'ABOUT'     : 'Düsseldorf ist eine Stadt am Rhein. Die Messe- und Sportstadt ist ein beliebtes Ausflugsziel zum Einkaufen und hat eine umfangreiche Geschichte rund um Bier und Mode.',
+            'STOP'      : 'Okay, bis bald!',
+            'MORE'      : 'Möchtest du mehr erfahren?',
+            'COFFEE'    : 'Für einen guten Kaffee empfehle ich {{name}} Möchtest du mehr erfahren?',
+            'BREAKFAST' : 'Probiere {{name}} für ein Frühstück. Möchtest du mehr erfahren?',
+            'LUNCH'     : 'Mittagszeit! Hier ist es gut: {{name}}. Möchtest du mehr erfahren?',
+            'DINNER'    : 'Genieße das Abendessen bei {{name}}. Möchtest du mehr erfahren?',
+            'ATTRACTION': 'Versuche {{name}}, es ist {{description}} Kilomter entfernt. Viel Spaß! {{description}}',
+            'ATT_NEAR'  : 'Versuche {{name}}, es ist in der Innenstadt. {{description}}',
+            'ATT_NO'    : 'Ich konnte leider nichts im Umkreis von {{distance}} Kilomtern finden!',
+            'DETAILS'   : '{{name}} findest du an der Adresse {{address}}, die Telefonnummer ist {{phone}}, und die Beschreibung ist, {{description}}. Ich habe diese Angaben an deine Alexa App geschickt. <say-as interpret-as="interjection">bon appetit</say-as>',
+            'PHONE'     : 'Telefon: ',
+            'GO_OUT'    : 'Es ist {{localTime}} und das Wetter in {{city}} ist {{currentTemp}} und {{currentCondition}}'
+        } 
+    }
+};
+
+const SKILL_NAME = "Dusseldorf Guide";
 
 // Weather courtesy of the Yahoo Weather API.
 // This free API recommends no more than 2000 calls per day
-
+// This concrete API only provides mph, fahrenheit, and english results.
 const myAPI = {
     host: 'query.yahooapis.com',
     port: 443,
-    path: `/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22${encodeURIComponent(data.city)}%2C%20${data.state}%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys`,
+    path: `/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22${encodeURIComponent(data_de.city)}%2C%20${data_de.state}%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys`,
     method: 'GET'
 };
 // 2. Skill Code =======================================================================================================
@@ -101,8 +194,7 @@ exports.handler = function(event, context, callback) {
 
 const handlers = {
     'LaunchRequest': function () {
-        var say = this.t('WELCOME') + ' ' + this.t('HELP');
-        this.response.speak(say).listen(say);
+        this.response.speak(this.t('WELCOME')).listen(this.t('HELP'));
         this.emit(':responseReady');
     },
 
@@ -112,80 +204,83 @@ const handlers = {
     },
 
     'CoffeeIntent': function () {
-        var restaurant = randomArrayElement(getRestaurantsByMeal('coffee'));
-        this.attributes['restaurant'] = restaurant.name;
+        var locale = this.event.request.locale;
 
-        var say = 'For a great coffee shop, I recommend, ' + restaurant.name + '. Would you like to hear more?';
-        this.response.speak(say).listen(say);
+        var data;
+        if (locale === "de-DE") {
+            data = data_de;
+        } else {
+            data = data_en;
+        }
+     
+        var restaurant = randomArrayElement(getRestaurantsByMeal('coffee', data));
+        this.attributes['restaurant'] = restaurant.name;
+        this.response.speak(this.t('COFFEE', {name: restaurant.name})).listen(this.t('MORE'));
         this.emit(':responseReady');
     },
 
     'BreakfastIntent': function () {
-        var restaurant = randomArrayElement(getRestaurantsByMeal('breakfast'));
+        var data = this.t('DATA');
+        var restaurant = randomArrayElement(getRestaurantsByMeal('breakfast', data));
         this.attributes['restaurant'] = restaurant.name;
-
-        var say = 'For breakfast, try this, ' + restaurant.name + '. Would you like to hear more?';
-        this.response.speak(say).listen(say);
+        this.response.speak(this.t('BREAKFAST', {name: restaurant.name})).listen(this.t('MORE'));
         this.emit(':responseReady');
     },
 
     'LunchIntent': function () {
-        var restaurant = randomArrayElement(getRestaurantsByMeal('lunch'));
+        var data = this.t('DATA');
+        var restaurant = randomArrayElement(getRestaurantsByMeal('lunch', data));
         this.attributes['restaurant'] = restaurant.name;
-
-        var say = 'Lunch time! Here is a good spot. ' + restaurant.name + '. Would you like to hear more?';
-        this.response.speak(say).listen(say);
+        this.response.speak(this.t('LUNCH', {name: restaurant.name})).listen(this.t('MORE'));
         this.emit(':responseReady');
     },
 
     'DinnerIntent': function () {
-        var restaurant = randomArrayElement(getRestaurantsByMeal('dinner'));
+        var data = this.t('DATA');
+        var restaurant = randomArrayElement(getRestaurantsByMeal('dinner', data));
         this.attributes['restaurant'] = restaurant.name;
-
-        var say = 'Enjoy dinner at, ' + restaurant.name + '. Would you like to hear more?';
-        this.response.speak(say).listen(say);
+        this.response.speak(this.t('DINNER', {name: restaurant.name})).listen(this.t('MORE'));
         this.emit(':responseReady');
     },
 
     'AMAZON.YesIntent': function () {
+        var data = this.t('DATA');
         var restaurantName = this.attributes['restaurant'];
-        var restaurantDetails = getRestaurantByName(restaurantName);
-
-        var say = restaurantDetails.name
-            + ' is located at ' + restaurantDetails.address
-            + ', the phone number is ' + restaurantDetails.phone
-            + ', and the description is, ' + restaurantDetails.description
-            + '  I have sent these details to the Alexa App on your phone.  Enjoy your meal! <say-as interpret-as="interjection">bon appetit</say-as>' ;
+        var restaurantDetails = getRestaurantByName(restaurantName, data);
 
         var card = restaurantDetails.name + '\n' + restaurantDetails.address + '\n'
             + data.city + ', ' + data.state + ' ' + data.postcode
-            + '\nphone: ' + restaurantDetails.phone + '\n';
+            + '\n' + this.t('PHONE') + restaurantDetails.phone + '\n';
 
         this.response.cardRenderer(SKILL_NAME, card);
-        this.response.speak(say);
+        this.response.speak(this.t('DETAILS', {name: restaurantDetails.name, address: restaurantDetails.address, phone:restaurantDetails.phone, description: restaurantDetails.description}));
         this.emit(':responseReady');
 
     },
 
     'AttractionIntent': function () {
+        var data = this.t('DATA');
         var distance = 200;
         if (this.event.request.intent.slots.distance.value) {
             distance = this.event.request.intent.slots.distance.value;
         }
 
-        var attraction = randomArrayElement(getAttractionsByDistance(distance));
+        var attraction = randomArrayElement(getAttractionsByDistance(distance, data));
 
-        var say = 'Try '
-            + attraction.name + ', which is '
-            + (attraction.distance == "0" ? 'right downtown. ' : attraction.distance + ' miles away. Have fun! ')
-            + attraction.description;
+        if (!attraction) {
+            this.response.speak(this.t('ATT_NO', {distance: distance}));
+        } else if (attraction.distance == "0") {
+            this.response.speak(this.t('ATT_NEAR', {name: attraction.name, distance: attraction.distance, description: attraction.description}));
+        } else {
+            this.response.speak(this.t('ATTRACTION', {name: attraction.name, distance: attraction.distance, description: attraction.description}));
+        }
 
-        this.response.speak(say);
         this.emit(':responseReady');
     },
 
     'GoOutIntent': function () {
-
+        
+        // This concrete API only provides mph, fahrenheit, and english results.
         getWeather( ( localTime, currentTemp, currentCondition) => {
             // time format 10:34 PM
             // currentTemp 72
@@ -194,11 +289,8 @@ const handlers = {
             // sample API URL for Irvine, CA
             // https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22irvine%2C%20ca%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
 
-            var say = 'It is ' + localTime
-                + ' and the weather in ' + data.city
-                + ' is '
-                + currentTemp + ' and ' + currentCondition;
-            this.response.speak(say);
+            var data = this.t('DATA');
+            this.response.speak(this.t('GO_OUT', {localTime: localTime, city:data.city, currentTemp:currentTemp, currentCondition:currentCondition}));
             this.emit(':responseReady');
 
             // TODO
@@ -234,7 +326,7 @@ const handlers = {
 //    END of Intent Handlers {} ========================================================================================
 // 3. Helper Function  =================================================================================================
 
-function getRestaurantsByMeal(mealtype) {
+function getRestaurantsByMeal(mealtype, data) {
 
     var list = [];
     for (var i = 0; i < data.restaurants.length; i++) {
@@ -246,7 +338,7 @@ function getRestaurantsByMeal(mealtype) {
     return list;
 }
 
-function getRestaurantByName(restaurantName) {
+function getRestaurantByName(restaurantName, data) {
 
     var restaurant = {};
     for (var i = 0; i < data.restaurants.length; i++) {
@@ -258,7 +350,7 @@ function getRestaurantByName(restaurantName) {
     return restaurant;
 }
 
-function getAttractionsByDistance(maxDistance) {
+function getAttractionsByDistance(maxDistance, data) {
 
     var list = [];
 
