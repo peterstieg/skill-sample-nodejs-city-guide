@@ -1,0 +1,93 @@
+{
+  "languageModel": {
+      "invocationName": "dusseldorf guide",
+      "intents": [
+          {
+              "name": "AboutIntent",
+              "slots": [],
+              "samples": [
+                  "about",
+                  "tell me about this place"
+              ]
+          },
+          {
+              "name": "AMAZON.CancelIntent",
+              "slots": [],
+              "samples": []
+          },
+          {
+              "name": "AMAZON.HelpIntent",
+              "slots": [],
+              "samples": []
+          },
+          {
+              "name": "AMAZON.NoIntent",
+              "slots": [],
+              "samples": []
+          },
+          {
+              "name": "AMAZON.StopIntent",
+              "slots": [],
+              "samples": []
+          },
+          {
+              "name": "AMAZON.YesIntent",
+              "slots": [],
+              "samples": []
+          },
+          {
+              "name": "AttractionIntent",
+              "slots": [
+                  {
+                      "name": "distance",
+                      "type": "AMAZON.NUMBER"
+                  }
+              ],
+              "samples": [
+                  "recommend an attraction",
+                  "recommend an attraction within {distance} kilometers",
+                  "give me an activity",
+                  "give me an activity within {distance} kilometers"
+              ]
+          },
+          {
+              "name": "BreakfastIntent",
+              "slots": [],
+              "samples": [
+                  "breakfast"
+              ]
+          },
+          {
+              "name": "CoffeeIntent",
+              "slots": [],
+              "samples": [
+                  "coffee"
+              ]
+          },
+          {
+              "name": "DinnerIntent",
+              "slots": [],
+              "samples": [
+                  "dinner"
+              ]
+          },
+          {
+              "name": "GoOutIntent",
+              "slots": [],
+              "samples": [
+                  "go out",
+                  "go outside",
+                  "lets go out"
+              ]
+          },
+          {
+              "name": "LunchIntent",
+              "slots": [],
+              "samples": [
+                  "lunch"
+              ]
+          }
+      ],
+      "types": []
+  }
+}

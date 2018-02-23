@@ -35,7 +35,7 @@ If you would like to see an example of this skill in action, you can enable the 
 
 ### Task 1: Build the Skill
 
-Create your skill using the Lambda code given in [src/index.js](src/index.js) and the [Interaction Model](speech-assets/InteractionModel.json) (We've also included a simple [test file](tests/test.js) for your lambda function).
+Create your skill using the Lambda code given in [lambda/custom/index.js](lambda/custom/index.js) and the [Interaction Model](models/de-DE.json) (We've also included a simple [test file](tests/test.js) for your lambda function).
 
 
 #### New Skill Builders Path
@@ -50,17 +50,17 @@ If you're not familiar with building Alexa skill, click the get started button f
   1. Choose the **Fact** blueprint template. Tip. remember to choose the N. Virginia region.
   1. Setup "Alexa Skills Kit" as the function trigger.
   1. Name the function. Choose a name for your guide.
-  1. Replace the existing code by pasting in the code from [src/index.js](src/index.js).
+  1. Replace the existing code by pasting in the code from [lambda/custom/index.js](lambda/custom/index.js).
   1. Set the Lambda function's role ```lambda_basic_execution``` [see also detailed walkthrough for setting up your first role for Lambda](lambda-role.md)
   1. Click "Create Function"
 
 *1.2 Create a new skill*
 [See also: Detailed Voice UI Instructions](step-by-step/1-voice-user-interface.md)
-  1. Sign in and create a skill at [developer.amazon.com](https://developer.amazon.com/)
+  1. Sign in and create a skill at [developer.amazon.com](https://developer.amazon.com/) with the new Developer Console Beta.
   1. Choose an invocation name of your choice. we used ```Gloucester Guide```. You'll want to choose your own location.
   1. Launch "Skill Builder Beta"
   1. Click the Code Editor tab (just below the turqoise Dashboard tab on the top left)
-  1. Copy and paste the [speechAssets/InteractionModel.json](speech-assets/InteractionModel.json) contents into the field over the existing text.
+  1. Copy and paste the [models/de-DE.json](models/de-DE.json) contents into the field over the existing text.
   1. Click Save, then click Build
   1. Advance to the Configuration page, choose AWS Lambda ARN, and paste in the ARN from the function you just created. [Detailed configuration Instructions](step-by-step/3-connect-vui-to-code.md)
 
